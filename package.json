@@ -1,0 +1,22 @@
+{
+  "name": "d3-magiceden-tests-henrique",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/henriqueocosta/d3-magicEden-tests-henrique.git"
+  },
+  "author": "Henrique Oliveira Costa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/henriqueocosta/d3-magicEden-tests-henrique/issues"
+  },
+  "homepage": "https://github.com/henriqueocosta/d3-magicEden-tests-henrique#readme",
+  "dependencies": {
+    "cypress": "^13.2.0"
+  }
+}
