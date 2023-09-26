@@ -7,7 +7,7 @@ This Automation uses Cypress 13.2.0 to run tests agains the Magic Eden NFT Marke
 - Clone the repo;
 - Run the command ***npm install*** in the root folder;
 - Run the command ***npm test*** to run the tests headless;
-- Run the command ***npm cy:open*** to run the tests headed.
+- Run the command ***npm run cy:open*** to run the tests headed.
 
 ## Some important folders and files
 
