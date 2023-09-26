@@ -17,7 +17,7 @@ describe('Cart', () => {
 
   it('TC006 - Add item to the cart', () => {
     cy.addItemToCart()
-    
+
     cy.get('.tw-gap-5 > .tw-gap-x-1').should('be.visible')
   })
 
@@ -26,6 +26,11 @@ describe('Cart', () => {
 
     cy.get('.tw-w-12 > .tw-absolute').click()
     cy.get('.tw-mt-14').find('span[class="tw-mx-auto"]').should('have.text', '(Cart is empty)')
+  })
+
+  it('TC008 - Open the connect to a wallet modal throught the Cart', () => {
+    cy.contains('button', 'Connect wallet').click()
+    cy.contains('h1', 'Connect a wallet to continue').should('be.visible')
   })
 
 })
