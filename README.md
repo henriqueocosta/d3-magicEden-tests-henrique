@@ -1,6 +1,6 @@
 # D3 MagicEden Tests - Cypress - Henrique
 
-This Automation uses Cypress 13.2.0 to run tests agains the Magic Eden NFT Marketplace. 
+This Automation uses Cypress 13.2.0 to run tests against the Magic Eden NFT Marketplace. 
 
 ## How to run
 
@@ -31,6 +31,5 @@ This Automation uses Cypress 13.2.0 to run tests agains the Magic Eden NFT Marke
 - TC010 - Search for an item that does not exists
 
 ## Notes
-This website needs an update on the selectors to add unique attributes such as ***data-testid*** it is important for the tests reliability. Doing it, the automation won't break due to a class, text or order changes for example. 
-
-It also needs a refactor of the Search feature to prevent if from keep searching while the user is typing, or create a pagination function, so it won't be sending API requests all the time. 
+- This website needs an update on the selectors to add unique attributes such as ***data-testid*** it is important for the tests reliability. Doing it, the automation won't break due to a class, text or order changes for example. It also needs a refactor of the Search feature to prevent if from keep searching while the user is typing, or create a pagination function, so it won't be sending API requests all the time. 
+- The choosen viewport is the most used one according to the hobo-web.co
