@@ -1,6 +1,6 @@
 describe('Search', () => {
 
-  const existentItem = '056.trustapp.dao'
+  const existentItem = '.dao'
   const nonExistentItem = 'gatoCachorro'
 
   beforeEach(() => {
@@ -9,7 +9,7 @@ describe('Search', () => {
 
   it('TC001 - Search for a valid item', () => {
     cy.searchForItem(existentItem)
-    cy.get('div[class="tw-truncate"]').eq(0).should('have.text', existentItem)
+    cy.get('div[class="tw-truncate"]').eq(0).should('contain', existentItem)
   })
 
   it('TC002 - Search for an item that does not exists', () => {

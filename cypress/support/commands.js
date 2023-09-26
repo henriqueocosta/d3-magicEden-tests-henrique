@@ -1,38 +1,35 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+//----------- Cart commands ------------------------//
+Cypress.Commands.add('addItemToCart', () => {
+    cy.get('img[class*="NFTMedia_media__UTjHH"]').eq(0).click()
+})
 
-Cypress.Commands.add('selectEndingFilter', (filterName) => {
+Cypress.Commands.add('checkEmptyCart', () => {
+    cy.contains('span', '(Cart is empty)')
+})
+
+
+//----------- Filter commands -----------------------//
+Cypress.Commands.add('selectCategoryFilter', (categoryFilter) => {
+    cy.intercept(
+        '**marketplaceFilter**',
+        'GET').as('marketPlaceFilterRequest')
+    cy.contains('div', 'Category').click()
+    cy.contains('span', categoryFilter).parent().click()
+    cy.wait('@marketPlaceFilterRequest')
+})
+
+Cypress.Commands.add('selectEndingFilter', (endingFilter) => {
     cy.intercept(
         '**marketplaceFilter**',
         'GET').as('marketPlaceFilterRequest')
     cy.contains('div', 'Ending').click()
-    cy.contains('span', filterName).parent().click()
+    cy.get('input[class*="tw-outline-none"]').eq(0).type(endingFilter)
+    cy.contains('span', endingFilter).parent().click()
     cy.wait('@marketPlaceFilterRequest')
 })
 
+
+//----------- Search commands -----------------------//
 Cypress.Commands.add('searchForItem', (text) => {
     cy.intercept(
         'GET',
@@ -40,8 +37,4 @@ Cypress.Commands.add('searchForItem', (text) => {
         ).as('loadSearch')
       cy.get('input[placeholder="Search token id"]').eq(1).type(text)
       cy.wait('@loadSearch')
-})
-
-Cypress.Commands.add('addItemToCart', () => {
-    cy.get(':nth-child(1) > :nth-child(1) > .tw-p-0 > .tw-flex-auto > .tw-rounded-xl > .tw-cursor-pointer > .NFTMedia_media__UTjHH').click()
 })
