@@ -6,7 +6,6 @@ describe('Cart', () => {
       '**/orders?sort**'
     ).as('loadNFTs')
     cy.visit('/')
-
     cy.wait('@loadNFTs')
     cy.wait(2000)
   })
