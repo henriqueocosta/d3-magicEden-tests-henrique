@@ -41,3 +41,7 @@ Cypress.Commands.add('searchForItem', (text) => {
       cy.get('input[placeholder="Search token id"]').eq(1).type(text)
       cy.wait('@loadSearch')
 })
+
+Cypress.Commands.add('addItemToCart', () => {
+    cy.get(':nth-child(1) > :nth-child(1) > .tw-p-0 > .tw-flex-auto > .tw-rounded-xl > .tw-cursor-pointer > .NFTMedia_media__UTjHH').click()
+})
